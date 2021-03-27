@@ -626,7 +626,7 @@
     \else
       \@restonecolfalse
     \fi
-    \songti\chapter*{\fontsize{\njut@fs@three}{\njut@fs@threeskip}\contentsname\selectfont}%
+    \chapter*{\songti\fontsize{\njut@fs@three}{\njut@fs@threeskip}\contentsname\selectfont}%
     % \contentsname
     \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
     \@starttoc{toc}%
