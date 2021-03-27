@@ -77,20 +77,26 @@
 \RequirePackage{xeCJKfntef}
 \xeCJKsetup{ underline/format = \color{black} }
 \RequirePackage[hyphens]{url}
-\RequirePackage{hyperref}
+\RequirePackage[unicode]{hyperref}
+%消除hyperref警告
+\pdfstringdefDisableCommands{%
+  \let\leavevmode@ifvmode\@empty
+}
+
 \hypersetup{%
-    unicode=false,
-    hyperfootnotes=true,
-    hyperindex=true,
+    % unicode=true,
+    % hyperfootnotes=true,
+    % hyperindex=true,
+    pdfencoding=unicode,
     pageanchor=true,
-    CJKbookmarks=true,
+    % CJKbookmarks=true,
     bookmarksnumbered=true,
     bookmarksopen=true,
     bookmarksopenlevel=0,
     breaklinks=true,
     colorlinks=false,
     plainpages=false,
-    pdfpagelabels,
+    % pdfpagelabels,
     pdfborder=0 0 0%
 }
 \urlstyle{same}
@@ -102,6 +108,7 @@
 \RequirePackage{ifthen}
 \RequirePackage[perpage,symbol*]{footmisc}
 \RequirePackage{etoolbox}
+\RequirePackage{titletoc}
 \input{njuthesis.cfg}
 \ifnjut@adobefonts
   \newcommand*{\njut@zhfn@songti}{\njut@zhfn@songti@adobe}
@@ -144,13 +151,14 @@
     \fi
   \fi
 \fi
-\setCJKfamilyfont{song}{\njut@zhfn@songti}
+\setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{\njut@zhfn@songti}
 \setCJKfamilyfont{hei}{\njut@zhfn@heiti}
 \setCJKfamilyfont{kai}{\njut@zhfn@kaishu}
 \setCJKfamilyfont{fangsong}{\njut@zhfn@fangsong}
 \setCJKmainfont[BoldFont={\njut@zhfn@heiti},%
                 ItalicFont={\njut@zhfn@kaishu}]%
                {\njut@zhfn@songti}
+% \setCJKmainfont{\njut@zhfn@songti}
 \setCJKsansfont{\njut@zhfn@heiti}
 \setCJKmonofont{\njut@zhfn@fangsong}
 \setmainfont{\njut@enfn@main}
@@ -407,22 +415,23 @@
 \renewcommand*{\tablename}{\njut@cap@tablename}
 \renewcommand*{\chaptername}{\njut@cap@chaptername}
 \renewcommand*{\appendixname}{\njut@cap@appendixname}
+%2021要求各部分标题四号黑体
 \titleformat{\chapter}[hang]
-            {\centering\zihao{-2}\bfseries}
+            {\centering\zihao{4}\bfseries}
             {\chaptertitlename}{1em}{}
 \titlespacing{\chapter}
              {0pt}
              {*4}
              {*3}
 \titleformat{\section}[hang]
-            {\zihao{3}\bfseries}
+            {\zihao{4}\bfseries}
             {\thesection}{1em}{}
 \titlespacing{\section}
              {0pt}
              {*3.5}
              {*2.3}
 \titleformat{\subsection}[hang]
-            {\zihao{-3}\bfseries}
+            {\zihao{4}\bfseries}
             {\thesubsection}{1em}{}
 \titlespacing{\subsection}
              {0pt}
@@ -457,12 +466,13 @@
 \captionsetup{font=small}
 \captionsetup[table]{position=top}
 \captionsetup[figure]{position=below}
-\renewcommand*{\baselinestretch}{1.38}
+% 行距
+% \renewcommand*{\baselinestretch}{1.38}
 \let\convertergy@oldtabular\tabular
 \let\convertergy@endoldtabular\endtabular
 \renewenvironment{tabular}%
 {\bgroup%
-\renewcommand{\arraystretch}{1.38}%
+% \renewcommand{\arraystretch}{1.38}%
 \convertergy@oldtabular}%
 {\convertergy@endoldtabular\egroup}
 \geometry{headheight=2.6cm,headsep=3mm,footskip=13mm}
@@ -583,13 +593,41 @@
       \penalty\@highpenalty
     \endgroup
   \fi}
+\titlecontents{nchapter}
+            [1em]
+            {\bf \zihao{4}}%
+            {\hspace*{2em}\contentslabel{2em}}%
+            {}%
+            {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
+
+\titlecontents{chapter}
+              [1em]
+              {\bf \zihao{4}}%
+              {\hspace*{2em}\contentslabel{2em}}%
+              {}%
+              {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
+
+\titlecontents{section}
+              [2.5cm]
+              {\zihao{-4} \songti}%
+              {\contentslabel{2em}}%
+              {}%
+              {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
+\titlecontents{subsection}
+              [4cm]
+              {\zihao{-4} \songti}%
+              {\contentslabel{3.5em}}%
+              {}%
+              {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
+
 \renewcommand*{\tableofcontents}{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
     \else
       \@restonecolfalse
     \fi
-    \nchapter{\contentsname}%
+    \songti\chapter*{\fontsize{\njut@fs@three}{\njut@fs@threeskip}\contentsname\selectfont}%
+    % \contentsname
     \@mkboth{\MakeUppercase\contentsname}{\MakeUppercase\contentsname}%
     \@starttoc{toc}%
     \if@restonecol\twocolumn\fi
@@ -859,7 +897,7 @@
   \begin{center}
     \includegraphics[height=3.35cm]{\njut@cap@institute@name}\\
     \vskip 10mm
-    {\songti\zihao{1}\makebox[9em][s]{\textbf{\njut@cap@cover@thesis}}}\\
+    {\zihao{1}\makebox[9em][s]{\bf{\songti\njut@cap@cover@thesis}}}\\
     \vskip 28mm
     \vskip\stretch{0}
     {\bgroup
