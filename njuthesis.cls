@@ -6,7 +6,7 @@
 %% 
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{njuthesis.cls}
+\ProvidesClass{njuthesis}
 \newif\ifnjut@adobefonts\njut@adobefontstrue
 \newif\ifnjut@winfonts\njut@winfontsfalse
 \newif\ifnjut@linuxfonts\njut@linuxfontsfalse
@@ -32,7 +32,8 @@
 \DeclareOption{backinfo}{\njut@backinfotrue}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions\relax
-\LoadClass[12pt,a4paper,doubleside]{book}
+% 加载book类
+\LoadClass[12pt,a4paper]{book}
 \RequirePackage{ifxetex}
 \RequireXeTeX
 \RequirePackage{lastpage}
@@ -70,7 +71,8 @@
 \usepackage{algorithm}
 \floatname{algorithm}{算法}
 \numberwithin{algorithm}{chapter}
-\RequirePackage[CJKnumber,CJKchecksingle]{xeCJK}
+% \RequirePackage[CJKnumber,CJKchecksingle]{xeCJK}
+\RequirePackage[CJKchecksingle]{xeCJK}
 \RequirePackage{CJKnumb}
 \defaultfontfeatures{Mapping=tex-text}
 \punctstyle{plain}
@@ -78,7 +80,7 @@
 \xeCJKsetup{ underline/format = \color{black} }
 \RequirePackage[hyphens]{url}
 \RequirePackage[unicode]{hyperref}
-%消除hyperref警告
+% 消除部分的hyperref警告
 \pdfstringdefDisableCommands{%
   \let\leavevmode@ifvmode\@empty
 }
@@ -108,6 +110,9 @@
 \RequirePackage{ifthen}
 \RequirePackage[perpage,symbol*]{footmisc}
 \RequirePackage{etoolbox}
+% 消除font shape不可用问题
+\RequirePackage{anyfontsize}
+% 用于排版目录
 \RequirePackage{titletoc}
 \input{njuthesis.cfg}
 \ifnjut@adobefonts
@@ -153,7 +158,7 @@
 \fi
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{\njut@zhfn@songti}
 \setCJKfamilyfont{hei}{\njut@zhfn@heiti}
-\setCJKfamilyfont{kai}{\njut@zhfn@kaishu}
+\setCJKfamilyfont{kai}[AutoFakeBold = {2.17}]{\njut@zhfn@kaishu}
 \setCJKfamilyfont{fangsong}{\njut@zhfn@fangsong}
 \setCJKmainfont[BoldFont={\njut@zhfn@heiti},%
                 ItalicFont={\njut@zhfn@kaishu}]%
@@ -415,7 +420,8 @@
 \renewcommand*{\tablename}{\njut@cap@tablename}
 \renewcommand*{\chaptername}{\njut@cap@chaptername}
 \renewcommand*{\appendixname}{\njut@cap@appendixname}
-%2021要求各部分标题四号黑体
+% 2021年本科毕业论文要求各部分标题四号黑体
+% 设置章节标题格式
 \titleformat{\chapter}[hang]
             {\centering\zihao{4}\bfseries}
             {\chaptertitlename}{1em}{}
@@ -452,7 +458,7 @@
              {*2}
              {*1}
 \titleformat{\subparagraph}[hang]
-            {\zihao{5}\bfseries}
+            {\zihao{4}\bfseries}
             {}{0em}{}
 \titlespacing{\subparagraph}
              {0pt}
@@ -593,33 +599,37 @@
       \penalty\@highpenalty
     \endgroup
   \fi}
+% 设置目录样式
+% nchapter并未使用
 \titlecontents{nchapter}
             [1em]
             {\bf \zihao{4}}%
             {\hspace*{2em}\contentslabel{2em}}%
             {}%
             {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
-
+% chapter样式，即每章标题
 \titlecontents{chapter}
               [1em]
               {\bf \zihao{4}}%
               {\hspace*{2em}\contentslabel{2em}}%
               {}%
               {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
-
+% section样式，节标题
+% 节标题为小四字号
 \titlecontents{section}
               [2.5cm]
               {\zihao{-4} \songti}%
               {\contentslabel{2em}}%
               {}%
               {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
+% subsection样式，三级标题
 \titlecontents{subsection}
               [4cm]
               {\zihao{-4} \songti}%
               {\contentslabel{3.5em}}%
               {}%
               {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
-
+% subsubsection并不会显示在目录中
 \renewcommand*{\tableofcontents}{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
