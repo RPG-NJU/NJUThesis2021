@@ -158,7 +158,7 @@
 \fi
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{\njut@zhfn@songti}
 \setCJKfamilyfont{hei}{\njut@zhfn@heiti}
-\setCJKfamilyfont{kai}[AutoFakeBold = {2.17}]{\njut@zhfn@kaishu}
+\setCJKfamilyfont{kai}{\njut@zhfn@kaishu}
 \setCJKfamilyfont{fangsong}{\njut@zhfn@fangsong}
 \setCJKmainfont[BoldFont={\njut@zhfn@heiti},%
                 ItalicFont={\njut@zhfn@kaishu}]%
