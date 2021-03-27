@@ -466,9 +466,9 @@
              {*1}
 \setcounter{secnumdepth}{4}
 \renewcommand{\thechapter}{\arabic{chapter}}
-\renewcommand{\thesection}{\thechapter\thinspace.\thinspace\arabic{section}}
-\renewcommand{\thesubsection}{\thesection\thinspace.\thinspace\arabic{subsection}}
-\renewcommand{\thesubsubsection}{\thesubsection\thinspace.\thinspace\arabic{subsubsection}}
+\renewcommand{\thesection}{\thechapter\hspace{0.16em}.\hspace{0.16em}\arabic{section}}
+\renewcommand{\thesubsection}{\thesection\hspace{0.16em}.\hspace{0.16em}\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesubsection\hspace{0.16em}.\hspace{0.16em}\arabic{subsubsection}}
 \captionsetup{font=small}
 \captionsetup[table]{position=top}
 \captionsetup[figure]{position=below}
@@ -503,7 +503,6 @@
 \fancyfoot[C]{\zihao{5}\thepage}
 \renewcommand{\footrulewidth}{0pt}
 \renewcommand{\headrulewidth}{0pt}
-\linespread{1.5}
 %\fancyhead[LE,RO]{\thepage}
 %\renewcommand{\headrulewidth}{1pt}
 %\fancyhead[RE]{\leftmark}
