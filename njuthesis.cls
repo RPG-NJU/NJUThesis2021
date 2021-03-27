@@ -1016,7 +1016,7 @@
   \end{spacing}
   \kaishu\zihao{-4}\par%
 }{%
-\cleardoublepage
+\newpage
 }
 \newcommand{\keywords}[1]{%
   \renewcommand*{\njut@value@abstract@keywords}{#1}%
