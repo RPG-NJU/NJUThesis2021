@@ -6,11 +6,17 @@
 %% 
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
+
+% 此处不加.cls，否则tex会警告
+% 如果无法tex加载njuthesis类可以考虑改为njuthesis.cls
 \ProvidesClass{njuthesis}
+
+% 默认是adobe字体
 \newif\ifnjut@adobefonts\njut@adobefontstrue
 \newif\ifnjut@winfonts\njut@winfontsfalse
 \newif\ifnjut@linuxfonts\njut@linuxfontsfalse
 \newif\ifnjut@macfonts\njut@macfontsfalse
+
 \newif\ifnjut@backinfo\njut@backinfofalse
 \newif\ifnjut@title@twolinetitle\njut@title@twolinetitlefalse
 \DeclareOption{adobefonts}{\njut@adobefontstrue
@@ -85,6 +91,7 @@
   \let\leavevmode@ifvmode\@empty
 }
 
+% xelatex默认Unicode，因此注释掉unicode=true
 \hypersetup{%
     % unicode=true,
     % hyperfootnotes=true,
@@ -156,6 +163,8 @@
     \fi
   \fi
 \fi
+
+% 宋体加粗需要AutoFakeBold
 \setCJKfamilyfont{song}[AutoFakeBold = {2.17}]{\njut@zhfn@songti}
 \setCJKfamilyfont{hei}{\njut@zhfn@heiti}
 \setCJKfamilyfont{kai}{\njut@zhfn@kaishu}
@@ -173,6 +182,10 @@
 \newcommand*{\heiti}{\CJKfamily{hei}}
 \newcommand*{\kaishu}{\CJKfamily{kai}}
 \newcommand*{\fangsong}{\CJKfamily{fangsong}}
+
+% 欧美传统排版的长度单位 1 inch = 72.27 pt
+% Word中的1 point = 1/72 inch = 1 bp
+% bp也对应于acrobat中字号的单位
 \newcommand*{\njut@fs@eight}{5.02} % 八号字 5bp
 \newcommand*{\njut@fs@eightskip}{6.02}
 \newcommand*{\njut@fs@seven}{5.52} % 七号字 5.5bp
@@ -628,7 +641,9 @@
               {\contentslabel{3.5em}}%
               {}%
               {\titlerule*[0.5pc]{$\cdot$}\contentspage\hspace*{1cm}}%
-% subsubsection并不会显示在目录中
+% subsubsection一般不使用，也不会显示在目录中，故此处没有配置
+
+% 重定义目录命令
 \renewcommand*{\tableofcontents}{%
     \if@twocolumn
       \@restonecoltrue\onecolumn
@@ -949,6 +964,8 @@
   \normalfont
   \cleardoublepage
 }
+
+% 2018版本残留，2021应该不需要
 % 本科生过程管理四张表
 \newcommand*{\controlpage}{%
 \includepdfmerge{controlpage.pdf,1-4}
@@ -959,6 +976,7 @@
 % \newcommand*{\abstracttitleb}[1]{%
 %   \renewcommand{\njut@value@abstract@titleb}{#1}%
 % }
+
 % 摘要
 \newenvironment{abstract}{%
   \thispagestyle{plain}
@@ -979,37 +997,6 @@
     本科生姓名： \njut@value@author \\
     指导老师（姓名、职称）： \njut@value@supervisor \njut@value@supervisortitle \\
     摘要：
-%    \bf\kaishu\zihao{4}
-%    \def\tabcolsep{0pt}
-%    \def\arraystretch{0.8}
-%    \noindent
-%    \begin{tabular}{p{5em}c}
-%      \makebox[5em][s]{题目：}
-%      & \njutunderline[335pt]{\njut@value@title}\\
-%    \end{tabular}
-%    \\
-%    \begin{tabular}{p{2.5em}cp{2.5em}cp{2.5em}cp{2.5em}c}
-%      \makebox[2em][s]{院系：}
-%      & \njutunderline[170pt]{\, \njut@value@department \,}
-%      & \makebox[2em][s]{专业：}
-%      & \njutunderline[170pt]{\, \njut@value@major \,}
-%    \end{tabular}
-%    \\
-%    \begin{tabular}{p{2.5em}cp{2.5em}cp{2.5em}cp{2.5em}c}
-%      \makebox[2em][s]{年级：}
-%      & \njutunderline[170pt]{\, \njut@value@grade \,}
-%      & \makebox[2em][s]{姓名：}
-%      & \njutunderline[170pt]{\, \njut@value@author \,}
-%    \end{tabular}
-%    \\
-%    \begin{tabular}{p{12em}c}
-%      \makebox[5em][s]{指导老师（姓名、职称）：}
-%      & \njutunderline[235pt]{\njut@value@supervisor \njut@value@supervisortitle}\\
-%    \end{tabular}
-%    \\
-%    \begin{tabular}{p{5em}}
-%      \makebox[5em][s]{摘要：}
-%    \end{tabular}
     \egroup
   }
   \end{spacing}
