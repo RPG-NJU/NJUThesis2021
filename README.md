@@ -2,6 +2,8 @@
 
 南京大学本科生毕业论文LaTex模板 2021
 
+[NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)
+
 > 当前版本已在Windows10 Texlive2019上通过测试
 
 ## 说明
@@ -13,21 +15,21 @@
 
 ## 鸣谢
 
-- 本模板由学长学姐的南京大学硕士博士学文论文模板改编而来。
+- 本模板由学长学姐的南京大学硕士博士学位论文模板改编而来。
 
 ## 声明
 
-- 此模版用于生成符合南京大学学位论文排版要求和相应的国家规范、行业标准的学位论文；
+- 此模版用于生成符合南京大学学位论文排版要求和相应的国家规范、行业标准的学位论文。
 
-- 基于本科生院的论文撰写规范修改
+- 基于本科生院的论文撰写规范修改。
 
-- 限于精力未提供详细使用说明;
+- 限于精力未提供详细使用说明。
 
 - 本模板旨在为同学提供毕业论文书写的方便，如有模板问题或者版权问题，请联系作者。
 
 ## 下载与使用
 
-github提供打包下载
+GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)下载。
 
 使用的时候应该采用XeLaTex(sample.tex)-BibTex(sample.bib)-XeLaTex(sample.tex)-XeLaTex(sample.tex)的顺序编译，以生成正确的参考文献目录和编号。
 
