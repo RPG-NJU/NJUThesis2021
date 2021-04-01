@@ -4,8 +4,6 @@
 
 [NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)
 
-> 当前版本已在Windows10 Texlive2019上通过测试
-
 ## 说明
 
 - 本版本从AnyiRao仓库fork而来
@@ -27,32 +25,66 @@
 
 - 本模板旨在为同学提供毕业论文书写的方便，如有模板问题或者版权问题，请联系作者。
 
-## 下载与使用
+## 使用说明
+
+### 环境配置
 
 GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)下载。
 
-使用的时候应该采用XeLaTex(sample.tex)-BibTex(sample.bib)-XeLaTex(sample.tex)-XeLaTex(sample.tex)的顺序编译，以生成正确的参考文献目录和编号。
+下表是目前实测可用的环境。限于设备，未在 macOS 上进行测试。
 
-## 特别提醒
+| OS           | Tex          | 测试情况 |
+| ------------ | ------------ | -------- |
+| Windows 10   | TexLive 2019 | ✔        |
+| Windows 10   | TexLive 2020 | ✔        |
+| Ubuntu 20.04 | TexLive 2020 | ✔        |
+
+Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows / Linux系统请使用TexLive(TeXworks)-->XeLatex，其他环境下还未测试。
+
+- 点击这里下载TexLive：[TexLive下载地址][TexLive]
+- 点击这里下载MacTex：[MacTex下载地址][MacTex]
+
+### 使用说明
+
+- 使用时应该采用XeLaTex(sample.tex)-BibTex(sample.bib)-XeLaTex(sample.tex)-XeLaTex(sample.tex)的顺序编译，以生成正确的参考文献目录和编号。
+
+- 编译产物为 sample.pdf。
+
+- 推荐使用 VSCode + LaTeX Workshop（插件）完成论文编写，也可以使用其他编辑器，如 texworks、texstudio。
+
+  本项目在 `.vscode/` 中附带一份乞丐版配置，可以直接使用。
+
+- 如果直接使用文本编辑器，也可以在完成编写后，执行项目根目录的编译脚本，以获取编译后的 PDF。
+
+  - Windows：
+  
+    ```powershell
+    .\compile.bat
+    ```
+    
+  - Linux：
+  
+    ```shell
+    ./compile.sh
+    ```
+
+### 特别提醒
 
 - PDF中故意留出一些空白页，这是为了让大章的起始页为偶数页。
 
-- Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows系统请使用TexLive(TeXworks)-->XeLatex，其他环境下还未测试。
-
-- 点击这里下载TexLive：[TexLive下载地址][TexLive] 点击这里下载MacTex：[MacTex下载地址][MacTex]
-
 - 不同的平台需要加载的字体不同，请根据tex文件中的提示使用不同的参数。如果遇到字体无法加载的问题请确认系统装有相应字体。不同平台下请反注释相应的代码，例如在windows下，应为：
 
-```latex
-%% 如需Adobe字体请用（默认）
-%\documentclass[adobefonts]{njuthesis}
-%% MacOS系统请用
-%\documentclass[macfonts]{njuthesis}
-%% Windows系统请用
-\documentclass[winfonts]{njuthesis}
-%% Linux系统请用
-%\documentclass[linuxfonts]{njuthesis}
-```
+  ```latex
+  %% 如需Adobe字体请用（默认）
+  %\documentclass[adobefonts]{njuthesis}
+  %% MacOS系统请用
+  %\documentclass[macfonts]{njuthesis}
+  %% Windows系统请用
+  \documentclass[winfonts]{njuthesis}
+  %% Linux系统请用
+  %\documentclass[linuxfonts]{njuthesis}
+  ```
+
 
 [TexLive]: https://www.tug.org/texlive/
 [MacTex]:https://tug.org/mactex/
