@@ -31,13 +31,11 @@
 
 GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)下载。
 
-使用的时候应该采用XeLaTex(sample.tex)-BibTex(sample.bib)-XeLaTex(sample.tex)-XeLaTex(sample.tex)的顺序编译，以生成正确的参考文献目录和编号。
+使用的时候应该采用XeLaTex-BibTex-XeLaTex-XeLaTex的顺序编译，以生成正确的参考文献目录和编号。
 
 ## 特别提醒
 
-- PDF中故意留出一些空白页，这是为了让大章的起始页为偶数页。
-
-- Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows系统请使用TexLive(TeXworks)-->XeLatex，其他环境下还未测试。
+- Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows系统请使用TexLive(TeXworks/Vscode)-->XeLatex，其他环境下还未测试。
 
 - 点击这里下载TexLive：[TexLive下载地址][TexLive] 点击这里下载MacTex：[MacTex下载地址][MacTex]
 
