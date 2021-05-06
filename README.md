@@ -1,10 +1,15 @@
 ﻿# NJU Thesis 2021
 
+[![njuthesis](https://img.shields.io/badge/njuthesis-latex-blue)](https://git.nju.edu.cn/nju-lug/nju-latex-templates)
+[![overleaf](https://img.shields.io/badge/overleaf-supported-brightgreen)](https://tex.nju.edu.cn)
+
 南京大学本科生毕业论文LaTex模板 2021
 
 [NJU GitLab同步镜像](https://git.nju.edu.cn/nju-lug/nju-latex-templates/NJUThesis2021)
 
 ## 说明
+
+> 如果要在南京大学[Overleaf](tex.nju.edu.cn)中使用，请先使用<font color="red">winfonts</font>，linuxfonts和adobefonts暂时没有安装完全，会出现timeout。
 
 - 本版本从AnyiRao仓库fork修改而来
 - 原作者RAY个人主页<http://anyirao.com>
@@ -38,6 +43,7 @@ GitHub提供打包下载，如果GitHub速度过慢，可以去[NJU GitLab同步
 | Windows 10   | TexLive 2019 | ✔        |
 | Windows 10   | TexLive 2020 | ✔        |
 | Ubuntu 20.04 | TexLive 2020 | ✔        |
+| tex.nju.edu.cn | TexLive 2020 | ✔      |
 
 - Mac系统请使用为MacTex(TexLive+Texshop)-->XeLatex，Windows系统请使用TexLive(TeXworks/Vscode)-->XeLatex，其他环境下还未测试。
 

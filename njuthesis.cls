@@ -121,6 +121,7 @@
 \RequirePackage{anyfontsize}
 % 用于排版目录
 \RequirePackage{titletoc}
+\RequirePackage{gbt7714}
 \input{njuthesis.cfg}
 \ifnjut@adobefonts
   \newcommand*{\njut@zhfn@songti}{\njut@zhfn@songti@adobe}
@@ -697,7 +698,7 @@
      {\def\@noitemerr
        {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
-\bibliographystyle{gbt7714-2005}
+\bibliographystyle{gbt7714-numerical}
 \setcitestyle{super,square}
 \renewcommand\NAT@citesuper[3]{%
 \ifNAT@swa%
@@ -896,20 +897,50 @@
   \end{tabular}
 }
 \newcommand*{\njut@covertable@twolinetitle}{
-  \begin{tabular}{p{7.3em}c}
-      \makebox[7em][s]{\njut@cap@cover@title}
-      & \njutunderline[310pt]{\njut@value@titlea}\\
-      \makebox[7em][s]{}
-      & \njutunderline[310pt]{\njut@value@titleb}\\
-      \makebox[7em][s]{\njut@cap@cover@author}
-      & \njutunderline[310pt]{\njut@value@author}\\
-      \makebox[7em][s]{\njut@cap@cover@major}
-      & \njutunderline[310pt]{\njut@value@major}\\
-      \makebox[7em][s]{\njut@cap@cover@supervisor}
-      & \njutunderline[310pt]{\njut@value@supervisor}\\
-      \makebox[7em][s]{\njut@cap@cover@researchfield}
-      & \njutunderline[310pt]{\njut@value@researchfield}\\
+  \begin{tabular}{p{4.2em}c}
+    \makebox[4.2em][s]{\njut@cap@cover@department}
+    & \njutunderline[250pt]{\njut@value@department}\\
+    \makebox[4.2em][s]{\njut@cap@cover@major}
+    & \njutunderline[250pt]{\njut@value@major}\\
+    \makebox[4.2em][s]{\njut@cap@cover@title}
+    & \njutunderline[250pt]{\njut@value@titlea} \\
+    \makebox[7em][s]{}
+    & \njutunderline[250pt]{\njut@value@titleb}
   \end{tabular}
+  \begin{tabular}{p{4.2em}cp{4.2em}c}
+    \makebox[4.2em][s]{\njut@cap@cover@grade}
+    & \njutunderline[90pt]{\njut@value@grade}
+    & \makebox[4.2em][s]{\njut@cap@cover@studentid}
+    & \njutunderline[90pt]{\njut@value@studentid}\\
+  \end{tabular}
+  \begin{tabular}{p{4.2em}c}
+    \makebox[4.2em][s]{\njut@cap@cover@author}
+    & \njutunderline[250pt]{\njut@value@author}
+  \end{tabular}
+  \begin{tabular}{p{4.2em}cp{4.2em}c}
+    \makebox[4.2em][s]{\njut@cap@cover@supervisor}
+    & \njutunderline[90pt]{\njut@value@supervisor}
+    & \makebox[4.2em][s]{\njut@cap@cover@supervisortitle}
+    & \njutunderline[90pt]{\njut@value@supervisortitle}\\
+  \end{tabular}
+  \begin{tabular}{p{4.2em}c}
+    \makebox[4.2em][s]{\njut@cap@cover@submitdate}
+    & \njutunderline[250pt]{\njut@value@submitdate}\\
+  \end{tabular}
+  % \begin{tabular}{p{7.3em}c}
+  %     \makebox[7em][s]{\njut@cap@cover@title}
+  %     & \njutunderline[310pt]{\njut@value@titlea}\\
+  %     \makebox[7em][s]{}
+  %     & \njutunderline[310pt]{\njut@value@titleb}\\
+  %     \makebox[7em][s]{\njut@cap@cover@author}
+  %     & \njutunderline[310pt]{\njut@value@author}\\
+  %     \makebox[7em][s]{\njut@cap@cover@major}
+  %     & \njutunderline[310pt]{\njut@value@major}\\
+  %     \makebox[7em][s]{\njut@cap@cover@supervisor}
+  %     & \njutunderline[310pt]{\njut@value@supervisor}\\
+  %     \makebox[7em][s]{\njut@cap@cover@researchfield}
+  %     & \njutunderline[310pt]{\njut@value@researchfield}\\
+  % \end{tabular}
 }
 \renewcommand*{\maketitle}{%
   \thispagestyle{empty}
